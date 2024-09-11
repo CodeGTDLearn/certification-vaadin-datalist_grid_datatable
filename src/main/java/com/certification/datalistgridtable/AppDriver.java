@@ -7,17 +7,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * The entry point of the Spring Boot application.
- *
+ * <p>
  * Use the @PWA annotation make the application installable on phones, tablets
  * and some desktop browsers.
- *
  */
 @SpringBootApplication
 @Theme(value = "datalistgridtable")
 public class AppDriver implements AppShellConfigurator {
 
-    public static void main(String[] args) {
-        SpringApplication.run(AppDriver.class, args);
-    }
+  public static void main(String[] args) {
+
+    SpringApplication.run(AppDriver.class, args);
+  }
 
 }
