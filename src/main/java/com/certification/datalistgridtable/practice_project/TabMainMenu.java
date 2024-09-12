@@ -1,7 +1,7 @@
 package com.certification.datalistgridtable.practice_project;
 
 import com.certification.datalistgridtable.practice_project.tabViews.dogs.DogsView;
-import com.certification.datalistgridtable.practice_project.tabViews.owners.OwnersView;
+import com.certification.datalistgridtable.practice_project.tabViews.fosters.FostersView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.html.*;
@@ -91,9 +91,9 @@ public class TabMainMenu extends AppLayout {
     return
          new MenuTabItem[]{
               new MenuTabItem(
-                   OWNER_TAB_TITLE,
+                   FOSTERS_TAB_TITLE,
                    LineAwesomeIcon.USER_ALT_SOLID.create(),
-                   OwnersView.class
+                   FostersView.class
               ),
               new MenuTabItem(
                    DOGS_TAB_TITLE,
