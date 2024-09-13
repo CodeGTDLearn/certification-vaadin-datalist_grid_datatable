@@ -1,15 +1,16 @@
 package com.certification.datalistgridtable.practice_project.tabViews.fosters;
 
 import com.certification.datalistgridtable.practice_project.tabViews.dogs.Dog;
+import com.certification.datalistgridtable.practice_project.utils.DataFaker;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import static com.certification.datalistgridtable.practice_project.tabViews.dogs.DogRepository.getAllDogs;
-import static com.certification.datalistgridtable.practice_project.utils.DataFaker.Fake;
+import static com.certification.datalistgridtable.practice_project.tabViews.dogs.DogService.getAllDogs;
 
-public class FosterRepository {
+
+public class FosterService {
 
   private static final int FOSTER_QUANTITY = 10;
 
@@ -21,8 +22,8 @@ public class FosterRepository {
       Foster foster = new Foster(
            UUID.randomUUID()
                .toString(),
-           Fake.FullName(),
-           Fake.PhoneNumber(),
+           DataFaker.fullName(),
+           DataFaker.phoneNumber(),
            generateDogsFostered()
       );
       fosters.add(foster);
@@ -34,7 +35,7 @@ public class FosterRepository {
   private List<Dog> generateDogsFostered() {
 
     List<Dog> fosteredDogs = new ArrayList<>();
-    int totalDogs = Fake.RandomInteger(1, 5);
+    int totalDogs = DataFaker.randomInteger(1, 5);
 
     var repoListDogs = getAllDogs();
 
