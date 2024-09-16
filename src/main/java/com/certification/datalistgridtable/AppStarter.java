@@ -13,11 +13,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @Theme(value = "datalistgridtable")
-public class AppDriver implements AppShellConfigurator {
+public class AppStarter implements AppShellConfigurator {
 
   public static void main(String[] args) {
 
-    SpringApplication.run(AppDriver.class, args);
+    SpringApplication.run(AppStarter.class, args);
   }
 
 }

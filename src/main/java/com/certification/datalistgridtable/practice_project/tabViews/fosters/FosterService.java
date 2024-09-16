@@ -1,6 +1,5 @@
 package com.certification.datalistgridtable.practice_project.tabViews.fosters;
 
-import com.certification.datalistgridtable.practice_project.tabViews.dogs.Dog;
 import com.certification.datalistgridtable.practice_project.utils.DataFaker;
 
 import java.util.ArrayList;
@@ -14,7 +13,17 @@ public class FosterService {
 
   private static final int FOSTER_QUANTITY = 10;
 
+  public FosterService() {
+
+    generateFoster();
+  }
+
   public List<Foster> getAllFosters() {
+
+    return generateFoster();
+  }
+
+  private List<Foster> generateFoster() {
 
     List<Foster> fosters = new ArrayList<>();
 
@@ -24,7 +33,7 @@ public class FosterService {
                .toString(),
            DataFaker.fullName(),
            DataFaker.phoneNumber(),
-           generateDogsFostered()
+           getAllDogs()
       );
       fosters.add(foster);
     }
@@ -32,18 +41,19 @@ public class FosterService {
     return fosters;
   }
 
-  private List<Dog> generateDogsFostered() {
 
-    List<Dog> fosteredDogs = new ArrayList<>();
-    int totalDogs = DataFaker.randomInteger(1, 5);
-
-    var repoListDogs = getAllDogs();
-
-    for (int i = 0; i < totalDogs; i++) {
-      Dog dog = repoListDogs.get(i);
-      fosteredDogs.add(dog);
-    }
-
-    return fosteredDogs;
-  }
+  //  private List<Dog> generateDogsFostered() {
+  //
+  //    List<Dog> fosteredDogs = new ArrayList<>();
+  //    int totalDogs = new Random().nextInt(1,5);
+  //
+  //    var repoListDogs = getAllDogs();
+  //
+  //    for (int i = 0; i < totalDogs; i++) {
+  //      Dog dog = repoListDogs.get(i);
+  //      fosteredDogs.add(dog);
+  //    }
+  //
+  //    return fosteredDogs;
+  //  }
 }
