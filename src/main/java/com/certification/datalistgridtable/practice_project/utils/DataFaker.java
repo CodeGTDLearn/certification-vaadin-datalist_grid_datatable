@@ -562,8 +562,7 @@ public class DataFaker {
 
   private static final String[] GENDER = {
        "Male",
-       "Female",
-       "Other"
+       "Female"
   };
 
   private static final String[] HOBBY = {

@@ -1,6 +1,6 @@
 package com.certification.datalistgridtable.practice_project.tabViews.fosters;
 
-import com.certification.datalistgridtable.practice_project.TabMainMenu;
+import com.certification.datalistgridtable.practice_project.MainTabMenu;
 import com.certification.datalistgridtable.practice_project.tabViews.dogs.Dog;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
@@ -9,22 +9,25 @@ import com.vaadin.flow.data.renderer.TextRenderer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
+import lombok.AllArgsConstructor;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @PageTitle("Owners")
-@Route(value = "", layout = TabMainMenu.class)
-@RouteAlias(value = "", layout = TabMainMenu.class)
+@Route(value = "", layout = MainTabMenu.class)
+@RouteAlias(value = "", layout = MainTabMenu.class)
+@AllArgsConstructor
 public class FostersView extends VerticalLayout {
 
-  private final FosterService service = new FosterService();
-  private final List<Foster> fosters;
+  private FosterService fosterService = new FosterService();
+
+  private List<Foster> fosters;
   private Grid<Foster> grid;
 
   public FostersView() {
 
-    fosters = service.getAllFosters();
+    fosters = fosterService.getAllFosters();
 
     setSpacing(false);
     setSizeFull();
@@ -69,7 +72,7 @@ public class FostersView extends VerticalLayout {
                             .collect(Collectors.joining(", "))
              )
         )
-        .setHeader("Fostered Dogs - QTDE:" + totalDogsFostered)
+        .setHeader("Fostered Dogs - QTDE: " + totalDogsFostered)
         .setFooter("Currently Fostered Dogs Total: " + totalDogsFostered);
 
     multipleDogsFosterpreHeader();
@@ -85,9 +88,13 @@ public class FostersView extends VerticalLayout {
     var preHeader = grid.prependHeaderRow();
 
     Div div = new Div();
-    div.setText(title + getMultipleDogsFoster());
-    div.getElement().getStyle().set("position", "relative");
-    div.getElement().getStyle().set("text-align", "center");
+    div.setText(title + getMultipleDogsFosters());
+    div.getElement()
+       .getStyle()
+       .set("position", "relative");
+    div.getElement()
+       .getStyle()
+       .set("text-align", "center");
 
     preHeader
          .getCell(grid.getColumnByKey("name"))
@@ -102,15 +109,17 @@ public class FostersView extends VerticalLayout {
                      foster -> foster.getDogsFostered()
                                      .size())
                 .sum();
+
     return totalDogsFostered;
   }
 
-  private long getMultipleDogsFoster() {
+  private long getMultipleDogsFosters() {
 
     long multipleDogsFoster =
          fosters.stream()
-              .filter(foster -> foster.getDogsFostered().size() > 1)
-              .count();
+                .filter(foster -> foster.getDogsFostered()
+                                        .size() > 1)
+                .count();
     return multipleDogsFoster;
   }
 

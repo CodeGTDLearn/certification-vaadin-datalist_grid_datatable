@@ -16,8 +16,8 @@ public class Dog {
     private String breed;
     private String gender;
     private double weight;
-    private String description;
+    private String fosterAddress;
     private String currentFoster;
     private List<String> fosterHistory;
-    private String adoptionStatus;
+    private String status;
 }

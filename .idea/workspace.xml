@@ -8,6 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73a6204c-25a3-42b3-a063-746332aec269" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/fosters/FosterDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/utils/ViewUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/TabMainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/MainTabMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/Dog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogsView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/fosters/FosterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/fosters/FosterService.java" afterDir="false" />
@@ -60,22 +65,24 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;Application.AppDriver.executor&quot;: &quot;Run&quot;,
-    &quot;Application.AppStarter.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ToolWindowDebug.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;ToolWindowGit.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Application.AppDriver.executor": "Run",
+    "Application.AppStarter.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ToolWindowDebug.ShowToolbar": "false",
+    "ToolWindowGit.ShowToolbar": "false",
+    "ToolWindowRun.ShowToolbar": "false",
+    "kotlin-language-version-configured": "true",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.certification.datalistgridtable.practice_project.tabViews.fosters" />
+      <recent name="com.certification.datalistgridtable.practice_project.tabViews.dogs" />
       <recent name="com.certification.datalistgridtable.practice_project.utils" />
     </key>
   </component>
@@ -129,14 +136,22 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="5.0) Foster Tab View&#10;* CONCLUDED:&#10;- Add .idea folder (in order to save 'bookmarks')&#10;- Manual DataGrid (Column Grouping)&#10;&#10;* WORKING:&#10;- Manual DataGrid Advanced&#10;- DataGrid Renderers&#10;&#10;* NEXT STEPS:" />
+    <MESSAGE value="5.0) Foster Tab View&#10;* CONCLUDED:&#10;- Add .idea folder (in order to save 'bookmarks')&#10;- Manual DataGrid (Column Grouping)&#10;&#10;* WORKING:&#10;- Manual DataGrid Advanced&#10;- DataGrid Renderers&#10;&#10;* NEXT STEPS:" />
+    <option name="LAST_COMMIT_MESSAGE" value="5.0) Foster Tab View&#10;* CONCLUDED:&#10;- Add .idea folder (in order to save 'bookmarks')&#10;- Manual DataGrid (Column Grouping)&#10;&#10;* WORKING:&#10;- Manual DataGrid Advanced&#10;- DataGrid Renderers&#10;&#10;* NEXT STEPS:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogService.java</url>
-          <line>36</line>
+          <line>14</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/fosters/FosterService.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -13,9 +13,9 @@ import java.util.Arrays;
 
 import static com.certification.datalistgridtable.practice_project.config.AppTitles.*;
 
-public class TabMainMenu extends AppLayout {
+public class MainTabMenu extends AppLayout {
 
-  public TabMainMenu() {
+  public MainTabMenu() {
 
     var header = createHeader();
 
