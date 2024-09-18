@@ -8,16 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73a6204c-25a3-42b3-a063-746332aec269" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/fosters/FosterDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/utils/ViewUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/TabMainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/MainTabMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/Dog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogsView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/fosters/FosterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/fosters/FosterService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/fosters/FostersView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/fosters/FostersView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/utils/DataFaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/utils/DataFaker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +67,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "ToolWindowDebug.ShowToolbar": "false",
     "ToolWindowGit.ShowToolbar": "false",
+    "ToolWindowProblems.ShowToolbar": "false",
     "ToolWindowRun.ShowToolbar": "false",
     "kotlin-language-version-configured": "true",
     "settings.editor.selected.configurable": "preferences.keymap"
@@ -143,15 +137,10 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogService.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/fosters/FosterService.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/fosters/FostersView.java</url>
+          <line>123</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

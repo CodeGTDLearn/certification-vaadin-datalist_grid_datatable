@@ -7,12 +7,12 @@ import java.util.*;
 
 import static com.certification.datalistgridtable.practice_project.utils.DataFaker.randomOptions;
 
-
 public class DogDAO {
 
   public static List<Dog> getAllDogs() {
 
-    var DogQuantity = new Random().nextInt(1,7);
+//    var DogQuantity = new Random().nextInt(1,7);
+    var DogQuantity = 7;
 
     List<Dog> dogs = new ArrayList<>();
     String[] dogStatus = {"Adopted", "Available", "Pending"};
