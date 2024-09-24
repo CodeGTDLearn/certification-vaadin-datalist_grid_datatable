@@ -8,9 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73a6204c-25a3-42b3-a063-746332aec269" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogsView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/fosters/FostersView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/fosters/FostersView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/breeds/BreedView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/breeds/BreedView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +25,18 @@
       </list>
     </option>
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;CodeGTDLearn&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/CodeGTDLearn/certification-vaadin-datalist_grid_datatable.git&quot;,
+    &quot;accountId&quot;: &quot;5e5d3e5a-0fe6-4225-9d7f-9bfddf0cba19&quot;
+  }
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -39,6 +49,7 @@
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
+    <option name="showToolbar" value="false" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -58,23 +69,35 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Application.AppDriver.executor": "Run",
-    "Application.AppStarter.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ToolWindowDebug.ShowToolbar": "false",
-    "ToolWindowGit.ShowToolbar": "false",
-    "ToolWindowProblems.ShowToolbar": "false",
-    "ToolWindowRun.ShowToolbar": "false",
-    "kotlin-language-version-configured": "true",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Application.AppDriver.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AppStarter.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ToolWindow.Problems View.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;ToolWindow.Run.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;ToolWindowDebug.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;ToolWindowGit.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;ToolWindowProblems.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/SERVIDOR/Projects/certification-vaadin-datalist_grid_datatable/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/breeds&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.2716895&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.certification.datalistgridtable.practice_project.tabViews.breeds" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\SERVIDOR\Projects\certification-vaadin-datalist_grid_datatable\src\main\java\com\certification\datalistgridtable\practice_project\tabViews\breeds" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.certification.datalistgridtable.practice_project.config" />
       <recent name="com.certification.datalistgridtable.practice_project.tabViews.fosters" />
       <recent name="com.certification.datalistgridtable.practice_project.tabViews.dogs" />
       <recent name="com.certification.datalistgridtable.practice_project.utils" />
@@ -132,15 +155,17 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="5.0) Foster Tab View&#10;* CONCLUDED:&#10;- Add .idea folder (in order to save 'bookmarks')&#10;- Manual DataGrid (Column Grouping)&#10;&#10;* WORKING:&#10;- Manual DataGrid Advanced&#10;- DataGrid Renderers&#10;&#10;* NEXT STEPS:" />
     <MESSAGE value="5.0) Foster Tab View&#10;* CONCLUDED:&#10;- Add .idea folder (in order to save 'bookmarks')&#10;- Manual DataGrid (Column Grouping)&#10;&#10;* WORKING:&#10;- Manual DataGrid Advanced&#10;- DataGrid Renderers&#10;&#10;* NEXT STEPS:" />
-    <option name="LAST_COMMIT_MESSAGE" value="5.0) Foster Tab View&#10;* CONCLUDED:&#10;- Add .idea folder (in order to save 'bookmarks')&#10;- Manual DataGrid (Column Grouping)&#10;&#10;* WORKING:&#10;- Manual DataGrid Advanced&#10;- DataGrid Renderers&#10;&#10;* NEXT STEPS:" />
+    <MESSAGE value="    7.0) Grid Selection&#10;    * CONCLUDED:&#10;    - Programatic Grid Selection - Getting&#10;    - Context Menu in the grid&#10;    - ToolTip Menu in the grid&#10;&#10;    * WORKING:&#10;    - Item DEtails&#10;    - Theme Variant&#10;    - InLine Editing Grid&#10;    - Grid Editing&#10;&#10;    * NEXT STEPS:" />
+    <MESSAGE value="    7.0) Grid Selection&#10;    * CONCLUDED:&#10;    - Programatic Grid Selection - Getting&#10;    - Context Menu in the grid&#10;    - ToolTip Menu in the grid&#10;&#10;    * WORKING:&#10;    - Item DEtails&#10;    - Theme Variant&#10;    - InLine Editing Grid&#10;    - Grid Editing&#10;&#10;    * NEXT STEPS:" />
+    <option name="LAST_COMMIT_MESSAGE" value="    7.0) Grid Selection&#10;    * CONCLUDED:&#10;    - Programatic Grid Selection - Getting&#10;    - Context Menu in the grid&#10;    - ToolTip Menu in the grid&#10;&#10;    * WORKING:&#10;    - Item DEtails&#10;    - Theme Variant&#10;    - InLine Editing Grid&#10;    - Grid Editing&#10;&#10;    * NEXT STEPS:" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/fosters/FostersView.java</url>
-          <line>123</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogView.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

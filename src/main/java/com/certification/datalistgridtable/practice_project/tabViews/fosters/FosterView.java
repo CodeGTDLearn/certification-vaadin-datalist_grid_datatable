@@ -16,42 +16,43 @@ import lombok.AllArgsConstructor;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.certification.datalistgridtable.practice_project.config.AppRoutes.FOSTERS_ROUTE;
+import static com.certification.datalistgridtable.practice_project.config.AppTitles.FOSTERS_TAB_TITLE;
 import static com.vaadin.flow.component.notification.Notification.show;
 
-@PageTitle("Fosters")
-@Route(value = "", layout = MainTabMenu.class)
+@PageTitle(FOSTERS_TAB_TITLE)
+@Route(value = FOSTERS_ROUTE, layout = MainTabMenu.class)
 @RouteAlias(value = "", layout = MainTabMenu.class)
 @AllArgsConstructor
-public class FostersView extends VerticalLayout {
+public class FosterView extends VerticalLayout {
 
   private FosterService fosterService = new FosterService();
 
   private List<Foster> fosters;
   private Grid<Foster> grid;
 
-  public FostersView() {
+  public FosterView() {
 
     fosters = fosterService.getAllFosters();
 
-    configureView();
+    configure_View();
 
     // BeanGrid:Instanciacao Automatica
     grid = new Grid<>(Foster.class);
-    grid = createGrid();
+    grid = create_Grid();
 
     // BeanGrid:Injecao de Dados c/ Stream
     grid.setItems(
          fosters
               .stream()
-              .filter(f -> f.getName()
-                            .length() > 3)
+              .filter(foster -> foster.getName().length() > 3)
               .toList()
     );
 
     add(grid);
   }
 
-  private void configureView() {
+  private void configure_View() {
 
     setSpacing(false);
     setSizeFull();
@@ -60,7 +61,7 @@ public class FostersView extends VerticalLayout {
     getStyle().set("text-align", "center");
   }
 
-  private Grid<Foster> createGrid() {
+  private Grid<Foster> create_Grid() {
 
     // BeanGrid: Selecao/Ordenacao de Colunas na Instanciacao Automatica
     grid.setColumns(
@@ -68,7 +69,7 @@ public class FostersView extends VerticalLayout {
          "contactInfo"
     );
 
-    final int totalDogsFostered = countDogsFostered();
+    final int totalDogsFostered = calculate_TotalDogsFostered();
 
     // BeanGrid: Colunas com Header+Footer
     grid.addColumn(
@@ -84,41 +85,39 @@ public class FostersView extends VerticalLayout {
         .setHeader("Fostered Dogs - QTDE: " + totalDogsFostered)
         .setFooter("Currently Fostered Dogs Total: " + totalDogsFostered);
 
-    countDogMultipleFosterHeader();
+    create_GridHeader_WithMultipleDogsFosters();
 
-    selectFosterInGrid();
+    define_GridSelection();
 
     return grid;
   }
 
-  private void selectFosterInGrid() {
+  private void define_GridSelection() {
 
     // BeanGrid: Selection Mode - SINGLE
     grid.setSelectionMode(Grid.SelectionMode.SINGLE);
 
     // BeanGrid: Selection - asSingleSelect
-    grid.addSelectionListener(selection -> {
-      var foster = grid.asSingleSelect()
-                       .getValue();
-      if (foster != null) show("Selected Foster: " + foster.getName());
-    });
-
-    final var searchFooter = searchFosterInGridFooter();
+    grid.addSelectionListener(
+         selection -> {
+           var foster = grid.asSingleSelect().getValue();
+           if (foster != null) show("Chosen Foster: " + foster.getName());
+         });
 
     var preFooter = grid.appendFooterRow();
+
     preFooter
          .getCell(grid.getColumnByKey("name"))
-         .setComponent(searchFooter);
+         .setComponent(create_GridFooterButton_ForSearchFoster());
   }
 
-  private Div searchFosterInGridFooter() {
+  private Div create_GridFooterButton_ForSearchFoster() {
 
     var searchField = new TextField();
 
     Button searchButton = new Button(
          "Search",
          click -> {
-
            var searchItem = searchField.getValue();
 
            fosters
@@ -136,19 +135,20 @@ public class FostersView extends VerticalLayout {
                 );
          }
     );
-    Div dd = new Div(searchField, searchButton);
-    return dd;
+
+    Div div = new Div(searchField, searchButton);
+    return div;
   }
 
-  // Grid: prependHeaderRow (EXtra Row no Header)
-  private void countDogMultipleFosterHeader() {
+  // Grid: prependHeaderRow (Extra Row no Header)
+  private void create_GridHeader_WithMultipleDogsFosters() {
 
     var title = "Fostering Multiple Dogs: ";
 
     var preHeader = grid.prependHeaderRow();
 
     Div div = new Div();
-    div.setText(title + getDogMultipleFosters());
+    div.setText(title + calculate_TotalOfFostersWithMultipleDogs());
     div.getElement()
        .getStyle()
        .set("position", "relative");
@@ -161,26 +161,23 @@ public class FostersView extends VerticalLayout {
          .setComponent(div);
   }
 
-  private int countDogsFostered() {
+  private int calculate_TotalDogsFostered() {
 
-    int totalDogsFostered =
+    return
          fosters.stream()
                 .mapToInt(
                      foster -> foster.getDogsFostered()
                                      .size())
                 .sum();
-
-    return totalDogsFostered;
   }
 
-  private long getDogMultipleFosters() {
+  private long calculate_TotalOfFostersWithMultipleDogs() {
 
-    long multipleDogsFoster =
+    return
          fosters.stream()
                 .filter(foster -> foster.getDogsFostered()
                                         .size() > 1)
                 .count();
-    return multipleDogsFoster;
   }
 
 }

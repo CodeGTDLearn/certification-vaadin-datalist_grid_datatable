@@ -62,7 +62,7 @@ public class DogsView extends VerticalLayout {
 
     // BeanGrid: MultiSorting
     enableColumnSorting(grid, "name", "age");
-    grid.setMultiSort(true, Grid.MultiSortPriority.PREPEND);
+
 
     // BeanGrid: Selection Mode - MULTI
     grid.setSelectionMode(Grid.SelectionMode.MULTI);

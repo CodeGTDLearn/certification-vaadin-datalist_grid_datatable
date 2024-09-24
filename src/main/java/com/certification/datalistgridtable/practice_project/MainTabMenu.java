@@ -1,7 +1,8 @@
 package com.certification.datalistgridtable.practice_project;
 
-import com.certification.datalistgridtable.practice_project.tabViews.dogs.DogsView;
-import com.certification.datalistgridtable.practice_project.tabViews.fosters.FostersView;
+import com.certification.datalistgridtable.practice_project.tabViews.breeds.BreedView;
+import com.certification.datalistgridtable.practice_project.tabViews.dogs.DogView;
+import com.certification.datalistgridtable.practice_project.tabViews.fosters.FosterView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.html.*;
@@ -93,12 +94,17 @@ public class MainTabMenu extends AppLayout {
               new MenuTabItem(
                    FOSTERS_TAB_TITLE,
                    LineAwesomeIcon.USER_ALT_SOLID.create(),
-                   FostersView.class
+                   FosterView.class
               ),
               new MenuTabItem(
                    DOGS_TAB_TITLE,
                    LineAwesomeIcon.DOG_SOLID.create(),
-                   DogsView.class
+                   DogView.class
+              ),
+              new MenuTabItem(
+                   BREEDS_TAB_TITLE,
+                   LineAwesomeIcon.HOTDOG_SOLID.create(),
+                   BreedView.class
               )
          };
   }
