@@ -8,7 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73a6204c-25a3-42b3-a063-746332aec269" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/breeds/BreedView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/breeds/BreedView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/fosters/FosterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/fosters/FosterView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,16 +158,5 @@
     <MESSAGE value="    7.0) Grid Selection&#10;    * CONCLUDED:&#10;    - Programatic Grid Selection - Getting&#10;    - Context Menu in the grid&#10;    - ToolTip Menu in the grid&#10;&#10;    * WORKING:&#10;    - Item DEtails&#10;    - Theme Variant&#10;    - InLine Editing Grid&#10;    - Grid Editing&#10;&#10;    * NEXT STEPS:" />
     <MESSAGE value="    7.0) Grid Selection&#10;    * CONCLUDED:&#10;    - Programatic Grid Selection - Getting&#10;    - Context Menu in the grid&#10;    - ToolTip Menu in the grid&#10;&#10;    * WORKING:&#10;    - Item DEtails&#10;    - Theme Variant&#10;    - InLine Editing Grid&#10;    - Grid Editing&#10;&#10;    * NEXT STEPS:" />
     <option name="LAST_COMMIT_MESSAGE" value="    7.0) Grid Selection&#10;    * CONCLUDED:&#10;    - Programatic Grid Selection - Getting&#10;    - Context Menu in the grid&#10;    - ToolTip Menu in the grid&#10;&#10;    * WORKING:&#10;    - Item DEtails&#10;    - Theme Variant&#10;    - InLine Editing Grid&#10;    - Grid Editing&#10;&#10;    * NEXT STEPS:" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/tabViews/dogs/DogView.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

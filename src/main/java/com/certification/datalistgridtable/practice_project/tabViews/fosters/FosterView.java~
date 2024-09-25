@@ -2,11 +2,17 @@ package com.certification.datalistgridtable.practice_project.tabViews.fosters;
 
 import com.certification.datalistgridtable.practice_project.MainTabMenu;
 import com.certification.datalistgridtable.practice_project.tabViews.dogs.Dog;
+import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.grid.ItemClickEvent;
+import com.vaadin.flow.component.grid.ItemDoubleClickEvent;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.data.binder.ValidationException;
+import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.data.renderer.TextRenderer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -29,30 +35,27 @@ public class FosterView extends VerticalLayout {
   private FosterService fosterService = new FosterService();
 
   private List<Foster> fosters;
-  private Grid<Foster> grid;
+  private Grid<Foster> grid = new Grid<>(Foster.class);
 
   public FosterView() {
 
     fosters = fosterService.getAllFosters();
 
-    configureView();
+    configure_View();
 
     // BeanGrid:Instanciacao Automatica
-    grid = new Grid<>(Foster.class);
     grid = create_Grid();
 
-    // BeanGrid:Injecao de Dados c/ Stream
-    grid.setItems(
-         fosters
-              .stream()
-              .filter(foster -> foster.getName().length() > 3)
-              .toList()
-    );
+    define_GridHeader_MultipleDogsFosters(grid);
+
+    define_GridSelection(grid);
+
+    define_GridColumnEditor_ContactInfo(grid);
 
     add(grid);
   }
 
-  private void configureView() {
+  private void configure_View() {
 
     setSpacing(false);
     setSizeFull();
@@ -63,13 +66,15 @@ public class FosterView extends VerticalLayout {
 
   private Grid<Foster> create_Grid() {
 
+    var grid = new Grid<>(Foster.class);
+
     // BeanGrid: Selecao/Ordenacao de Colunas na Instanciacao Automatica
     grid.setColumns(
          "name",
          "contactInfo"
     );
 
-    final int totalDogsFostered = calculate_TotalDogsFostered();
+    int totalDogsFostered = calculate_TotalDogsFostered();
 
     // BeanGrid: Colunas com Header+Footer
     grid.addColumn(
@@ -85,14 +90,19 @@ public class FosterView extends VerticalLayout {
         .setHeader("Fostered Dogs - QTDE: " + totalDogsFostered)
         .setFooter("Currently Fostered Dogs Total: " + totalDogsFostered);
 
-    create_GridHeader_WithMultipleDogsFosters();
-
-    define_GridSelection();
+    // BeanGrid:Injecao de Dados c/ Stream
+    grid.setItems(
+         fosters
+              .stream()
+              .filter(foster -> foster.getName()
+                                      .length() > 3)
+              .toList()
+    );
 
     return grid;
   }
 
-  private void define_GridSelection() {
+  private void define_GridSelection(Grid<Foster> grid) {
 
     // BeanGrid: Selection Mode - SINGLE
     grid.setSelectionMode(Grid.SelectionMode.SINGLE);
@@ -100,7 +110,8 @@ public class FosterView extends VerticalLayout {
     // BeanGrid: Selection - asSingleSelect
     grid.addSelectionListener(
          selection -> {
-           var foster = grid.asSingleSelect().getValue();
+           var foster = grid.asSingleSelect()
+                            .getValue();
            if (foster != null) show("Chosen Foster: " + foster.getName());
          });
 
@@ -108,10 +119,10 @@ public class FosterView extends VerticalLayout {
 
     preFooter
          .getCell(grid.getColumnByKey("name"))
-         .setComponent(create_GridFooterButton_ForSearchFoster());
+         .setComponent(define_GridFooter_SearchFosterButton());
   }
 
-  private Div create_GridFooterButton_ForSearchFoster() {
+  private Div define_GridFooter_SearchFosterButton() {
 
     var searchField = new TextField();
 
@@ -140,8 +151,78 @@ public class FosterView extends VerticalLayout {
     return div;
   }
 
+  private void define_GridColumnEditor_ContactInfo(Grid<Foster> grid) {
+
+    var binder = new Binder<>(Foster.class);
+    var contactField = new TextField();
+
+    grid
+         .getColumnByKey("contactInfo")
+         .setEditorComponent(contactField);
+
+    binder.bind(contactField, "contactInfo");
+
+    grid.getEditor().setBuffered(true);
+
+    grid.addItemClickListener(click -> close_GridColumnEditor(grid, click));
+
+    grid.addItemDoubleClickListener(
+         click -> {
+
+           close_GridColumnEditor(grid, click);
+
+           binder.readBean(click.getItem());
+           grid.getEditor().editItem(click.getItem());
+
+           var buttons = create_GridColumnEditor_Buttons(grid, click, binder);
+
+           grid.setDetailsVisible(click.getItem(), true);
+           grid.setItemDetailsRenderer(new ComponentRenderer<>(item -> buttons));
+         }
+    );
+  }
+
+  private static Div create_GridColumnEditor_Buttons(
+       Grid<Foster> grid,
+       ItemClickEvent<Foster> click,
+       Binder<Foster> binder) {
+    
+
+    var saveButton = new Button("Save");
+    saveButton.addClickListener(e -> {
+           try {
+             binder.writeBean(click.getItem());
+           }
+           catch (ValidationException ex) {
+             throw new RuntimeException(ex);
+           }
+           close_GridColumnEditor(grid, click);
+         });
+
+
+    var discardButton = new Button("Discard");
+    discardButton.addClickListener(e -> {
+           binder.readBean(click.getItem());
+           close_GridColumnEditor(grid, click);
+         });
+
+    Div divButtons = new Div();
+    divButtons.add(saveButton, discardButton);
+
+    return divButtons;
+  }
+
+  private static void close_GridColumnEditor(
+       Grid<Foster> grid,
+       ItemClickEvent<Foster> event
+  ) {
+
+    grid.getEditor().cancel();
+    grid.setDetailsVisible(event.getItem(), false);
+  }
+
   // Grid: prependHeaderRow (Extra Row no Header)
-  private void create_GridHeader_WithMultipleDogsFosters() {
+  private void define_GridHeader_MultipleDogsFosters(Grid<Foster> grid) {
 
     var title = "Fostering Multiple Dogs: ";
 

@@ -43,7 +43,7 @@ public class BreedView extends VerticalLayout {
 
     define_GridLine_DetailRow(grid);
 
-    define_GridColumnEditor_BreedName(grid);
+    define_GridBreedColumn_Editor(grid);
 
     define_GridContextMenu(grid);
 
@@ -113,7 +113,7 @@ public class BreedView extends VerticalLayout {
     return grid;
   }
 
-  private void define_GridColumnEditor_BreedName(Grid<Breed> grid) {
+  private void define_GridBreedColumn_Editor(Grid<Breed> grid) {
 
     var breedColumnField = new TextField();
 

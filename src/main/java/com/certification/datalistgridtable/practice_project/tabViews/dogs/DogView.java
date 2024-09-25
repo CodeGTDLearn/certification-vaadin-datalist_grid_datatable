@@ -31,6 +31,11 @@ public class DogView extends VerticalLayout {
     configure_View();
 
     grid = create_Grid();
+
+    define_GridSorting(grid);
+
+    define_GridSelection(grid);
+
     grid.setItems(dogService.getAllDogs());
 
     add(grid);
@@ -63,10 +68,6 @@ public class DogView extends VerticalLayout {
 
     grid.getColumnByKey("weight")
         .setRenderer(new TextRenderer<>(dog -> new DecimalFormat("00.00").format(dog.getWeight())));
-
-    define_GridSorting(grid);
-
-    define_GridSelection(grid);
 
     return grid;
   }
