@@ -1,4 +1,4 @@
-package com.certification.datalistgridtable.practice_project.tabViews.breeds;
+package com.certification.datalistgridtable.practice_project.modules.breeds;
 
 import com.certification.datalistgridtable.practice_project.MainTabMenu;
 import com.vaadin.flow.component.Text;
@@ -10,6 +10,9 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.data.provider.DataProvider;
+import com.vaadin.flow.data.provider.ListDataProvider;
+import com.vaadin.flow.data.provider.SortDirection;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.data.renderer.NativeButtonRenderer;
 import com.vaadin.flow.router.PageTitle;
@@ -96,21 +99,36 @@ public class BreedView extends VerticalLayout {
     grid.removeColumnByKey("imageUrl");
 
     // BeanGrid:Injecao de Dados c/ Stream
-    grid
-         .setItems(
-              breeds.stream()
-                    .distinct()
-                    .filter(
-                         breed -> breeds.stream()
-                                        .filter(b2 -> ! breed.equals(b2))
-                                        .noneMatch(b2 -> breed.getBreedName()
-                                                              .equals(b2.getBreedName())))
-                    .toList()
-         );
+    var breedList =
+         breeds
+              .stream()
+              .distinct()
+              .filter(
+                   breed ->
+                        breeds
+                             .stream()
+                             .filter(b2 -> ! breed.equals(b2))
+                             .noneMatch(b2 -> breed.getBreedName()
+                                                   .equals(
+                                                        b2.getBreedName())))
+              .toList();
+
+
+    var dataProvider = define_GridSorting_DataProvider(breedList);
+
+    grid.setItems(dataProvider);
 
     grid.addThemeVariants(GridVariant.LUMO_ROW_STRIPES);
 
     return grid;
+  }
+
+  private static ListDataProvider<Breed> define_GridSorting_DataProvider(List<Breed> breedList) {
+
+    ListDataProvider<Breed> dataProvider = DataProvider.ofCollection(breedList);
+    dataProvider.setSortOrder(Breed::getOrigin, SortDirection.DESCENDING);
+
+    return dataProvider;
   }
 
   private void define_GridColumnEditor_BreedName(Grid<Breed> grid) {
@@ -123,11 +141,13 @@ public class BreedView extends VerticalLayout {
     var binder = new Binder<>(Breed.class);
     binder.bind(breedColumnField, "breedName");
 
-    grid.getEditor().setBinder(binder);
+    grid.getEditor()
+        .setBinder(binder);
 
     grid.addItemDoubleClickListener(
          clickEvent -> {
-           grid.getEditor().editItem(clickEvent.getItem());
+           grid.getEditor()
+               .editItem(clickEvent.getItem());
          }
     );
 

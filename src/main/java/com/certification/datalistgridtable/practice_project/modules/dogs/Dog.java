@@ -1,4 +1,4 @@
-package com.certification.datalistgridtable.practice_project.tabViews.dogs;
+package com.certification.datalistgridtable.practice_project.modules.dogs;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

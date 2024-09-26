@@ -1,4 +1,4 @@
-package com.certification.datalistgridtable.practice_project.tabViews.breeds;
+package com.certification.datalistgridtable.practice_project.modules.breeds;
 
 import lombok.NoArgsConstructor;
 
@@ -10,6 +10,6 @@ public class BreedService {
 
   public List<Breed> getBreeds() {
 
-    return BreedDAO.getBreeds();
+    return BreedRepo.getBreeds();
   }
 }

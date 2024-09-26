@@ -1,12 +1,10 @@
-package com.certification.datalistgridtable.practice_project.tabViews.fosters;
+package com.certification.datalistgridtable.practice_project.modules.fosters;
 
 import com.certification.datalistgridtable.practice_project.MainTabMenu;
-import com.certification.datalistgridtable.practice_project.tabViews.dogs.Dog;
-import com.vaadin.flow.component.ClickEvent;
+import com.certification.datalistgridtable.practice_project.modules.dogs.Dog;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.ItemClickEvent;
-import com.vaadin.flow.component.grid.ItemDoubleClickEvent;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -74,7 +72,7 @@ public class FosterView extends VerticalLayout {
          "contactInfo"
     );
 
-    int totalDogsFostered = calculate_TotalDogsFostered();
+    int totalDogsFostered = fosterService.totalize_DogsFostered();
 
     // BeanGrid: Colunas com Header+Footer
     grid.addColumn(
@@ -94,8 +92,7 @@ public class FosterView extends VerticalLayout {
     grid.setItems(
          fosters
               .stream()
-              .filter(foster -> foster.getName()
-                                      .length() > 3)
+              .filter(foster -> foster.getName().length() > 3)
               .toList()
     );
 
@@ -162,7 +159,8 @@ public class FosterView extends VerticalLayout {
 
     binder.bind(contactField, "contactInfo");
 
-    grid.getEditor().setBuffered(true);
+    grid.getEditor()
+        .setBuffered(true);
 
     grid.addItemClickListener(click -> close_GridColumnEditor(grid, click));
 
@@ -172,7 +170,8 @@ public class FosterView extends VerticalLayout {
            close_GridColumnEditor(grid, click);
 
            binder.readBean(click.getItem());
-           grid.getEditor().editItem(click.getItem());
+           grid.getEditor()
+               .editItem(click.getItem());
 
            var buttons = create_GridColumnEditor_Buttons(grid, click, binder);
 
@@ -186,25 +185,25 @@ public class FosterView extends VerticalLayout {
        Grid<Foster> grid,
        ItemClickEvent<Foster> event,
        Binder<Foster> binder) {
-    
+
 
     var saveButton = new Button("Save");
     saveButton.addClickListener(e -> {
-           try {
-             binder.writeBean(event.getItem());
-           }
-           catch (ValidationException ex) {
-             throw new RuntimeException(ex);
-           }
-           close_GridColumnEditor(grid, event);
-         });
+      try {
+        binder.writeBean(event.getItem());
+      }
+      catch (ValidationException ex) {
+        throw new RuntimeException(ex);
+      }
+      close_GridColumnEditor(grid, event);
+    });
 
 
     var discardButton = new Button("Discard");
     discardButton.addClickListener(e -> {
-           binder.readBean(event.getItem());
-           close_GridColumnEditor(grid, event);
-         });
+      binder.readBean(event.getItem());
+      close_GridColumnEditor(grid, event);
+    });
 
     Div divButtons = new Div();
     divButtons.add(saveButton, discardButton);
@@ -217,7 +216,8 @@ public class FosterView extends VerticalLayout {
        ItemClickEvent<Foster> event
   ) {
 
-    grid.getEditor().cancel();
+    grid.getEditor()
+        .cancel();
     grid.setDetailsVisible(event.getItem(), false);
   }
 
@@ -229,7 +229,10 @@ public class FosterView extends VerticalLayout {
     var preHeader = grid.prependHeaderRow();
 
     Div div = new Div();
-    div.setText(title + calculate_TotalOfFostersWithMultipleDogs());
+    div.setText(
+         title +
+         fosterService.totalize_FostersWithMultipleDogs()
+    );
     div.getElement()
        .getStyle()
        .set("position", "relative");
@@ -240,25 +243,6 @@ public class FosterView extends VerticalLayout {
     preHeader
          .getCell(grid.getColumnByKey("name"))
          .setComponent(div);
-  }
-
-  private int calculate_TotalDogsFostered() {
-
-    return
-         fosters.stream()
-                .mapToInt(
-                     foster -> foster.getDogsFostered()
-                                     .size())
-                .sum();
-  }
-
-  private long calculate_TotalOfFostersWithMultipleDogs() {
-
-    return
-         fosters.stream()
-                .filter(foster -> foster.getDogsFostered()
-                                        .size() > 1)
-                .count();
   }
 
 }

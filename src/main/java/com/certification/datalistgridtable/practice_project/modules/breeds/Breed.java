@@ -1,4 +1,4 @@
-package com.certification.datalistgridtable.practice_project.tabViews.breeds;
+package com.certification.datalistgridtable.practice_project.modules.breeds;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +13,7 @@ public class Breed {
 		private String breedName;
 		private String origin;
 		private String temperament;
-		private String name;
 		private String imageUrl;
+		private String name;
 
 }

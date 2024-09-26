@@ -1,4 +1,4 @@
-package com.certification.datalistgridtable.practice_project.tabViews.dogs;
+package com.certification.datalistgridtable.practice_project.modules.dogs;
 
 import lombok.NoArgsConstructor;
 
@@ -10,6 +10,7 @@ public class DogService {
 
   public List<Dog> getAllDogs() {
 
-    return DogDAO.getAllDogs();
+    return DogRepo.getAllDogs();
   }
+
 }

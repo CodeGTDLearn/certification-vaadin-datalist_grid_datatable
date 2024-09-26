@@ -1,8 +1,8 @@
 package com.certification.datalistgridtable.practice_project;
 
-import com.certification.datalistgridtable.practice_project.modules.breeds.BreedView;
-import com.certification.datalistgridtable.practice_project.modules.dogs.DogView;
-import com.certification.datalistgridtable.practice_project.modules.fosters.FosterView;
+import com.certification.datalistgridtable.practice_project.tabViews.breeds.BreedView;
+import com.certification.datalistgridtable.practice_project.tabViews.dogs.DogView;
+import com.certification.datalistgridtable.practice_project.tabViews.fosters.FosterView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.html.*;
