@@ -1,6 +1,9 @@
 package com.certification.datalistgridtable.practice_project.utils;
 
+import com.certification.datalistgridtable.practice_project.modules.breeds.Breed;
+import com.certification.datalistgridtable.practice_project.modules.cats.Cat;
 import com.certification.datalistgridtable.practice_project.modules.dogs.Dog;
+import com.certification.datalistgridtable.practice_project.modules.fosters.Foster;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,13 +14,71 @@ import static com.certification.datalistgridtable.practice_project.utils.DataFak
 
 public class DataBuilders {
 
-  private static String[] dogStatus = {"Adopted", "Available", "Pending"};
-
   private static Random random = new Random();
-  
+  private static String[] status = {"Adopted", "Available", "Pending"};
+
+  public static Foster createFoster(List<Dog> allDogs) {
+
+    return
+         new Foster(
+         UUID.randomUUID().toString(),
+         DataFaker.fullName(),
+         DataFaker.phoneNumber(),
+         allDogs
+    );
+  }
+
   public static Dog createDog() {
 
-    var fosters =
+    return
+         new Dog(
+         UUID.randomUUID().toString(),
+         DataFaker.dogName(),
+         random.nextInt(1, 10),
+         DataFaker.dogBreed(),
+         DataFaker.gender(),
+         random.nextDouble(0, 50.0),
+         DataFaker.address(),
+         DataFaker.fullName(),
+         generateFosterList(),
+         DataFaker.randomOption(status)
+    );
+  }
+
+  public static Breed createDogBreed() {
+
+    return
+         new Breed(
+         UUID.randomUUID().toString(),
+         DataFaker.dogBreed(),
+         DataFaker.city(),
+         DataFaker.behavior(),
+         DataFaker.dogName(),
+         DataFaker.imageDog()
+    );
+  }
+
+  public static Cat createCat() {
+
+    return
+         new Cat(
+         UUID.randomUUID()
+             .toString(),
+         DataFaker.dogName(),
+         random.nextInt(1, 10),
+         DataFaker.catBreed(),
+         DataFaker.gender(),
+         random.nextDouble(0, 10.0),
+         DataFaker.address(),
+         DataFaker.fullName(),
+         generateFosterList(),
+         DataFaker.randomOption(status)
+    );
+  }
+
+  private static List<String> generateFosterList() {
+
+    return
          Arrays.asList(
               randomOptions(
                    random.nextInt(1, 3),
@@ -25,21 +86,5 @@ public class DataBuilders {
                    DataFaker.fullName(),
                    DataFaker.fullName()
               ));
-
-    Dog dog = new Dog(
-         UUID.randomUUID()
-             .toString(),
-         DataFaker.dogName(),
-         random.nextInt(1, 20),
-         DataFaker.dogBreed(),
-         DataFaker.gender(),
-         random.nextDouble(0, 50.0),
-         DataFaker.address(),
-         DataFaker.fullName(),
-         fosters,
-         DataFaker.randomOption(dogStatus)
-    );
-
-    return dog;
   }
 }

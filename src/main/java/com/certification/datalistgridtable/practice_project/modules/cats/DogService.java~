@@ -1,0 +1,16 @@
+package com.certification.datalistgridtable.practice_project.modules.cats;
+
+import lombok.NoArgsConstructor;
+
+import java.util.List;
+
+
+@NoArgsConstructor
+public class DogService {
+
+  public List<Cat> getAllDogs() {
+
+    return DogRepo.getAllDogs();
+  }
+
+}

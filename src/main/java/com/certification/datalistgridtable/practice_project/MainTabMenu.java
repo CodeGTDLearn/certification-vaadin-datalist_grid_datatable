@@ -1,6 +1,7 @@
 package com.certification.datalistgridtable.practice_project;
 
 import com.certification.datalistgridtable.practice_project.modules.breeds.BreedView;
+import com.certification.datalistgridtable.practice_project.modules.cats.CatView;
 import com.certification.datalistgridtable.practice_project.modules.dogs.DogView;
 import com.certification.datalistgridtable.practice_project.modules.fosters.FosterView;
 import com.vaadin.flow.component.Component;
@@ -105,6 +106,11 @@ public class MainTabMenu extends AppLayout {
                    BREEDS_TAB_TITLE,
                    LineAwesomeIcon.HOTDOG_SOLID.create(),
                    BreedView.class
+              ),
+              new MenuTabItem(
+                   CATS_TAB_TITLE,
+                   LineAwesomeIcon.CAT_SOLID.create(),
+                   CatView.class
               )
          };
   }

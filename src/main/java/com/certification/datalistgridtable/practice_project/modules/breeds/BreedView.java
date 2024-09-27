@@ -30,11 +30,9 @@ import static com.vaadin.flow.component.notification.Notification.show;
 @AllArgsConstructor
 public class BreedView extends VerticalLayout {
 
-  private BreedService breedService = new BreedService();
-
   private List<Breed> breeds;
-
   private Grid<Breed> grid = new Grid<>(Breed.class);
+  private BreedService breedService = new BreedService();
 
   public BreedView() {
 
@@ -53,6 +51,45 @@ public class BreedView extends VerticalLayout {
     define_GridTooltip(grid);
 
     add(grid);
+  }
+
+  private Grid<Breed> create_Grid() {
+
+    var grid = new Grid<>(Breed.class);
+
+    grid.removeColumnByKey("id");
+    grid.removeColumnByKey("name");
+    grid.removeColumnByKey("imageUrl");
+
+    var dataProvider = load_Grid_MemoryDataProvider();
+
+    grid.setItems(dataProvider);
+
+    grid.addThemeVariants(GridVariant.LUMO_ROW_STRIPES);
+
+    return grid;
+  }
+
+  private ListDataProvider<Breed> load_Grid_MemoryDataProvider() {
+
+    // BeanGrid:Injecao de Dados c/ Stream
+    var breedList =
+         breeds
+              .stream()
+              .distinct()
+              .filter(
+                   breed ->
+                        breeds
+                             .stream()
+                             .filter(b2 -> ! breed.equals(b2))
+                             .noneMatch(b2 -> breed.getBreedName()
+                                                   .equals(
+                                                        b2.getBreedName())))
+              .toList();
+
+    ListDataProvider<Breed> load_Grid_MemoryDataProvider = DataProvider.ofCollection(breedList);
+
+    return define_GridSorting_DataProvider(load_Grid_MemoryDataProvider);
   }
 
   private void define_GridTooltip(Grid<Breed> grid) {
@@ -90,42 +127,10 @@ public class BreedView extends VerticalLayout {
     getStyle().set("text-align", "center");
   }
 
-  private Grid<Breed> create_Grid() {
 
-    var grid = new Grid<>(Breed.class);
-
-    grid.removeColumnByKey("id");
-    grid.removeColumnByKey("name");
-    grid.removeColumnByKey("imageUrl");
-
-    // BeanGrid:Injecao de Dados c/ Stream
-    var breedList =
-         breeds
-              .stream()
-              .distinct()
-              .filter(
-                   breed ->
-                        breeds
-                             .stream()
-                             .filter(b2 -> ! breed.equals(b2))
-                             .noneMatch(b2 -> breed.getBreedName()
-                                                   .equals(
-                                                        b2.getBreedName())))
-              .toList();
+  private static ListDataProvider<Breed> define_GridSorting_DataProvider(ListDataProvider<Breed> dataProvider) {
 
 
-    var dataProvider = define_GridSorting_DataProvider(breedList);
-
-    grid.setItems(dataProvider);
-
-    grid.addThemeVariants(GridVariant.LUMO_ROW_STRIPES);
-
-    return grid;
-  }
-
-  private static ListDataProvider<Breed> define_GridSorting_DataProvider(List<Breed> breedList) {
-
-    ListDataProvider<Breed> dataProvider = DataProvider.ofCollection(breedList);
     dataProvider.setSortOrder(Breed::getOrigin, SortDirection.DESCENDING);
 
     return dataProvider;

@@ -30,10 +30,9 @@ import static com.vaadin.flow.component.notification.Notification.show;
 @AllArgsConstructor
 public class FosterView extends VerticalLayout {
 
-  private FosterService fosterService = new FosterService();
-
   private List<Foster> fosters;
   private Grid<Foster> grid = new Grid<>(Foster.class);
+  private FosterService fosterService = new FosterService();
 
   public FosterView() {
 
@@ -51,15 +50,6 @@ public class FosterView extends VerticalLayout {
     define_GridColumnEditor_ContactInfo(grid);
 
     add(grid);
-  }
-
-  private void configure_View() {
-
-    setSpacing(false);
-    setSizeFull();
-    setJustifyContentMode(JustifyContentMode.CENTER);
-    setDefaultHorizontalComponentAlignment(Alignment.CENTER);
-    getStyle().set("text-align", "center");
   }
 
   private Grid<Foster> create_Grid() {
@@ -88,6 +78,12 @@ public class FosterView extends VerticalLayout {
         .setHeader("Fostered Dogs - QTDE: " + totalDogsFostered)
         .setFooter("Currently Fostered Dogs Total: " + totalDogsFostered);
 
+    load_Grid_MemoryDataProvider(grid);
+
+    return grid;
+  }
+
+  private void load_Grid_MemoryDataProvider(Grid<Foster> grid) {
     // BeanGrid:Injecao de Dados c/ Stream
     grid.setItems(
          fosters
@@ -95,8 +91,15 @@ public class FosterView extends VerticalLayout {
               .filter(foster -> foster.getName().length() > 3)
               .toList()
     );
+  }
 
-    return grid;
+  private void configure_View() {
+
+    setSpacing(false);
+    setSizeFull();
+    setJustifyContentMode(JustifyContentMode.CENTER);
+    setDefaultHorizontalComponentAlignment(Alignment.CENTER);
+    getStyle().set("text-align", "center");
   }
 
   private void define_GridSelection(Grid<Foster> grid) {

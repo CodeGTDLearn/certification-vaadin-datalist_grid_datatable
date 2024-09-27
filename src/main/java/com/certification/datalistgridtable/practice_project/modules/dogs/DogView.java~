@@ -59,9 +59,9 @@ public class DogView extends VerticalLayout {
 
     format_Grid_Columns(grid);
 
-    ListDataProvider<Dog> load_Grid_MemoryDataProvider = DataProvider.ofCollection(dogService.getAllDogs());
+    ListDataProvider<Dog> load_Grid_MemoryDataProviderg = DataProvider.ofCollection(dogService.getAllDogs());
 
-    var dataProvider = define_GridSorting_DataProvider(load_Grid_MemoryDataProvider);
+    var dataProvider = define_GridSorting_DataProvider(load_Grid_MemoryDataProviderg);
 
     dataView = grid.setItems(dataProvider);
 

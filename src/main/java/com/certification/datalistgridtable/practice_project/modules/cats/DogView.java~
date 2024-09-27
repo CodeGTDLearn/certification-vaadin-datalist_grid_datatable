@@ -1,4 +1,4 @@
-package com.certification.datalistgridtable.practice_project.modules.dogs;
+package com.certification.datalistgridtable.practice_project.modules.cats;
 
 import com.certification.datalistgridtable.practice_project.MainTabMenu;
 import com.certification.datalistgridtable.practice_project.utils.DataBuilders;
@@ -29,13 +29,13 @@ import static com.vaadin.flow.component.notification.Notification.show;
 
 @PageTitle(DOGS_TAB_TITLE)
 @Route(value = DOGS_ROUTE, layout = MainTabMenu.class)
-public class DogView extends VerticalLayout {
+public class CatgView extends VerticalLayout {
 
-  private GridListDataView<Dog> dataView;
-  private Grid<Dog> grid = new Grid<>(Dog.class);
-  private DogService dogService = new DogService();
+  private CatService dogService = new CatService();
+  private Grid<Cat> grid = new Grid<>(Cat.class);
+  private GridListDataView<Cat> dataView;
 
-  public DogView() {
+  public CatgView() {
 
     configure_View();
 
@@ -50,28 +50,6 @@ public class DogView extends VerticalLayout {
     add(grid);
   }
 
-  private Grid<Dog> create_Grid() {
-
-    Grid<Dog> grid = new Grid<>(Dog.class);
-
-    // BeanGrid: Instanciacao Programatica
-    grid.setColumns("name", "breed", "age", "weight", "gender", "status");
-
-    format_Grid_Columns(grid);
-
-    ListDataProvider<Dog> load_Grid_MemoryDataProvider = DataProvider.ofCollection(dogService.getAllDogs());
-
-    var dataProvider = define_GridSorting_DataProvider(load_Grid_MemoryDataProvider);
-
-    dataView = grid.setItems(dataProvider);
-
-    define_GridHeaderDogName_AddDogButton(grid);
-
-    define_GridHeaderBreed_RemoveDogButton(grid);
-
-    return grid;
-  }
-
   private void configure_View() {
 
     setSpacing(false);
@@ -81,7 +59,7 @@ public class DogView extends VerticalLayout {
     getStyle().set("text-align", "center");
   }
 
-  private void define_preHeader_RangeAgeFilterCombo(Grid<Dog> grid) {
+  private void define_preHeader_RangeAgeFilterCombo(Grid<Cat> grid) {
 
     var size = "25%";
     Integer[] ages = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -120,7 +98,13 @@ public class DogView extends VerticalLayout {
 
   }
 
-  private static void format_Grid_Columns(Grid<Dog> grid) {
+  private Grid<Cat> create_Grid() {
+
+    Grid<Cat> grid = new Grid<>(Cat.class);
+
+    // BeanGrid: Instanciacao Programatica
+    grid.setColumns("name", "breed", "age", "weight", "gender", "status");
+
     // BeanGrid: Renderer ByKeyColumn
     grid
          .getColumnByKey("age")
@@ -132,46 +116,57 @@ public class DogView extends VerticalLayout {
 
     grid.getColumnByKey("weight")
         .setRenderer(new TextRenderer<>(dog -> new DecimalFormat("00.00").format(dog.getWeight())));
+
+    var dataProvider = define_GridSorting_DataProvider(dogService.getAllDogs());
+
+    dataView = grid.setItems(dataProvider);
+
+    define_GridHeaderDogName_AddDogButton(grid);
+
+    define_GridHeaderBreed_RemoveDogButton(grid);
+
+    return grid;
   }
 
-  private void define_GridSelection_View(Grid<Dog> grid) {
+  private void define_GridSelection_View(Grid<Cat> grid) {
     // BeanGrid: Selection Mode - MULTI
     grid.setSelectionMode(Grid.SelectionMode.MULTI);
 
     // BeanGrid: Selection - 'asMultiSelect' Values
     grid.addSelectionListener(event -> {
-      Set<Dog> dogs = grid.asMultiSelect()
+      Set<Cat> dogs = grid.asMultiSelect()
                           .getValue();
 
       // BeanGrid: Selection - Getting 'getSelectedItems' Values
-      Set<Dog> dogs2 = grid.getSelectedItems();
+      Set<Cat> dogs2 = grid.getSelectedItems();
       show("Selected Dog(s): " +
            dogs2.stream()
-                .map(Dog::getName)
+                .map(Cat::getName)
                 .collect(Collectors.joining(", \n")) +
            " - Total:" + dogs.size());
     });
   }
 
-  private void define_GridSorting_View(Grid<Dog> grid) {
+  private void define_GridSorting_View(Grid<Cat> grid) {
 
     // BeanGrid: Sorting + setComparator
     grid.getColumnByKey("age")
-        .setComparator(Comparator.comparingInt(Dog::getAge));
+        .setComparator(Comparator.comparingInt(Cat::getAge));
 
     // BeanGrid: MultiSorting
     enableColumnSorting(grid, "name", "age");
     grid.setMultiSort(true, Grid.MultiSortPriority.PREPEND);
   }
 
-  private ListDataProvider<Dog> define_GridSorting_DataProvider(ListDataProvider<Dog> dataProvider) {
+  private ListDataProvider<Cat> define_GridSorting_DataProvider(List<Cat> list) {
 
-    dataProvider.setSortComparator(Comparator.comparing(Dog::getName)::compare);
+    ListDataProvider<Cat> dataProvider = DataProvider.ofCollection(list);
+    dataProvider.setSortComparator(Comparator.comparing(Cat::getName)::compare);
 
     return dataProvider;
   }
 
-  private void define_GridHeaderDogName_AddDogButton(Grid<Dog> grid) {
+  private void define_GridHeaderDogName_AddDogButton(Grid<Cat> grid) {
 
     var addButton = new Button("Add a Dog");
 
@@ -198,7 +193,7 @@ public class DogView extends VerticalLayout {
          .setComponent(div);
   }
 
-  private void define_GridHeaderBreed_RemoveDogButton(Grid<Dog> grid) {
+  private void define_GridHeaderBreed_RemoveDogButton(Grid<Cat> grid) {
 
     var removeButton = new Button("Delete a Dog");
 

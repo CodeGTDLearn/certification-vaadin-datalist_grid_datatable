@@ -1,41 +1,20 @@
 package com.certification.datalistgridtable.practice_project.modules.dogs;
 
-import com.certification.datalistgridtable.practice_project.utils.DataBuilders;
-import com.certification.datalistgridtable.practice_project.utils.DataFaker;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
-import java.util.*;
-
-
-import static com.certification.datalistgridtable.practice_project.utils.DataFaker.randomOptions;
+import static com.certification.datalistgridtable.practice_project.utils.DataBuilders.createDog;
 
 public class DogRepo {
-
-  private static String[] dogStatus = {"Adopted", "Available", "Pending"};
-
-  private static Random random = new Random();
+  private static final int TOTAL_DOGS = 7;
 
   public static List<Dog> getAllDogs() {
 
-    //    var DogQuantity = new Random().nextInt(1,7);
-    var DogQuantity = 7;
-
     List<Dog> dogs = new ArrayList<>();
 
-    for (int i = 0; i < DogQuantity; i++) {
+    for (int i = 0; i < TOTAL_DOGS; i++) dogs.add(createDog());
 
-      var fosters =
-           Arrays.asList(
-                randomOptions(
-                     random.nextInt(1, 3),
-                     DataFaker.fullName(),
-                     DataFaker.fullName(),
-                     DataFaker.fullName()
-                ));
-
-      var dog = DataBuilders.createDog();
-
-      dogs.add(dog);
-    }
 
     return dogs;
   }

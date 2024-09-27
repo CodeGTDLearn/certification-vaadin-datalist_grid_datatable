@@ -1,0 +1,24 @@
+package com.certification.datalistgridtable.practice_project.modules.cats;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import static com.certification.datalistgridtable.practice_project.utils.DataBuilders.createDog;
+
+public class CatgRepo {
+  private static final int TOTAL_DOGS = 7;
+  private static final String[] dogStatus = {"Adopted", "Available", "Pending"};
+  private static final Random random = new Random();
+
+  public static List<Cat> getAllDogs() {
+
+    List<Cat> dogs = new ArrayList<>();
+
+    for (int i = 0; i < TOTAL_DOGS; i++) dogs.add(createDog());
+
+
+    return dogs;
+  }
+
+}
