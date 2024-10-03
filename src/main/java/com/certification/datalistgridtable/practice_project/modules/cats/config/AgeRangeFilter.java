@@ -1,14 +1,13 @@
-package com.certification.datalistgridtable.practice_project.modules.cats;
+package com.certification.datalistgridtable.practice_project.modules.cats.config;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
 @AllArgsConstructor
-public class AgeGroup {
+public class AgeRangeFilter {
 
   private int minAge;
   private int maxAge;

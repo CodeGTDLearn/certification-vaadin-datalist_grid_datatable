@@ -62,13 +62,12 @@ public class DataBuilders {
 
     return
          new Cat(
-         UUID.randomUUID()
-             .toString(),
+         UUID.randomUUID().toString(),
          DataFaker.catName(),
-         random.nextInt(1, 10),
+         random.nextInt(1, 15),
          DataFaker.catBreed(),
          DataFaker.gender(),
-         random.nextDouble(0, 10.0),
+         random.nextDouble(0, 115.0),
          DataFaker.address(),
          DataFaker.fullName(),
          generateFosterList(),

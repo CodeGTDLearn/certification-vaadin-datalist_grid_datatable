@@ -90,7 +90,6 @@ public class BreedView extends VerticalLayout {
     ListDataProvider<Breed> load_Grid_MemoryDataProvider = DataProvider.ofCollection(breedList);
 
     return define_GridSorting_DataProvider(load_Grid_MemoryDataProvider);
-    
   }
 
   private void define_GridTooltip(Grid<Breed> grid) {

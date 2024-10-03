@@ -63,12 +63,12 @@ public class CatService {
     return range.getMinAge() <= age && range.getMaxAge() >= age;
   }
 
-//    public Stream<Consultant> getPersons(Query<Consultant, Void> query) { List<QuerySortOrder>
-//    sorting = query.getSortOrders();
-//      QuerySortOrder<String> order1 = sorting.get(9);
-//      String propertyName = order1.getSorted();
-//      SortDirection direction = order1.getDirection();
-//    }
+    public Stream<Consultant> getPersons(Query<Consultant, Void> query) { List<QuerySortOrder>
+    sorting = query.getSortOrders();
+      QuerySortOrder<String> order1 = sorting.get(9);
+      String propertyName = order1.getSorted();
+      SortDirection direction = order1.getDirection();
+    }
 
 
 }

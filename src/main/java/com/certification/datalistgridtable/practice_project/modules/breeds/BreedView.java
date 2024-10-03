@@ -127,7 +127,6 @@ public class BreedView extends VerticalLayout {
     getStyle().set("text-align", "center");
   }
 
-
   private static ListDataProvider<Breed> define_GridSorting_DataProvider(ListDataProvider<Breed> dataProvider) {
 
 

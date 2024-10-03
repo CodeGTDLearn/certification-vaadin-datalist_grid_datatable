@@ -1,6 +1,8 @@
 package com.certification.datalistgridtable.practice_project.modules.cats;
 
 import com.certification.datalistgridtable.practice_project.MainTabMenu;
+import com.certification.datalistgridtable.practice_project.modules.cats.config.AgeRangeFilter;
+import com.certification.datalistgridtable.practice_project.modules.cats.config.WeightRangeFilter;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -47,47 +49,44 @@ public class CatView extends VerticalLayout {
 
     format_Grid_Columns(grid);
 
-    load_Grid_LazyDataProvider(grid);
+    load_Grid_LazyDataProvider_ByAgeFilter(grid);
 
     return grid;
   }
 
-  private void load_Grid_LazyDataProvider(Grid<Cat> grid) {
+  private void load_Grid_LazyDataProvider_ByAgeFilter(Grid<Cat> grid) {
 
-    // create lazy Data Provider using the PersonService
-    final CallbackDataProvider<Cat, AgeGroup>
+    final CallbackDataProvider<Cat, AgeRangeFilter>
          lazyDataProvider =
          DataProvider
               .fromFilteringCallbacks(
                    query -> catService
-                        .fetchCallBack_fetchLazyGetAll(
+                        .fetchCallBack_byAgeRangeFilter(
                              query.getOffset(),
                              query.getLimit(),
-                             query.getFilter()
-                                  .orElse(null)
+                             query.getFilter().orElse(null)
                         ),
                    query -> catService
-                        .countCallBack_totalizeLazyGetAll(
+                        .countCallBack_byAgeRangeFilter(
                              query.getOffset(),
                              query.getLimit(),
-                             query.getFilter()
-                                  .orElse(null)
+                             query.getFilter().orElse(null)
                         )
               );
 
-    final ConfigurableFilterDataProvider<Cat, Void, AgeGroup>
-         lazyFilterProvider = lazyDataProvider.withConfigurableFilter();
+    final ConfigurableFilterDataProvider<Cat, Void, AgeRangeFilter>
+         lazyAgeFilterProvider = lazyDataProvider.withConfigurableFilter();
 
-    grid.setItems(lazyFilterProvider);
+    grid.setItems(lazyAgeFilterProvider);
 
     // add value change listener to comboFilter and update the DataProvider
     // accordingly
-    var ageGroups = new ArrayList<AgeGroup>();
-    ageGroups.add(new AgeGroup(1, 4));
-    ageGroups.add(new AgeGroup(5, 8));
-    ageGroups.add(new AgeGroup(9, 10));
+    var ageGroups = new ArrayList<AgeRangeFilter>();
+    ageGroups.add(new AgeRangeFilter(1, 4));
+    ageGroups.add(new AgeRangeFilter(5, 8));
+    ageGroups.add(new AgeRangeFilter(9, 10));
 
-    var comboFilter = new ComboBox<AgeGroup>();
+    var comboFilter = new ComboBox<AgeRangeFilter>();
     comboFilter.setItems(ageGroups);
 
     grid
@@ -99,7 +98,7 @@ public class CatView extends VerticalLayout {
          .addValueChangeListener(
               valueChanged -> {
                 var ageGroup = valueChanged.getValue();
-                lazyFilterProvider.setFilter(ageGroup);
+                lazyAgeFilterProvider.setFilter(ageGroup);
               });
   }
 
@@ -110,6 +109,17 @@ public class CatView extends VerticalLayout {
     setJustifyContentMode(JustifyContentMode.CENTER);
     setDefaultHorizontalComponentAlignment(Alignment.CENTER);
     getStyle().set("text-align", "center");
+  }
+
+  private void define_GridSorting_View(Grid<Cat> grid) {
+
+    // Simple columns:
+//    grid.removeColumnByKey("age");
+    grid.addColumn(Cat::getAge).setSortProperty("age");
+
+    // Combined columns:
+//    grid.addColumn(c -> c.getFirstName() + " " + c.getLastName()) .setSortProperty("lastName", "firstName");
+
   }
 
   private static void format_Grid_Columns(Grid<Cat> grid) {
@@ -124,16 +134,5 @@ public class CatView extends VerticalLayout {
 
     grid.getColumnByKey("weight")
         .setRenderer(new TextRenderer<>(cat -> new DecimalFormat("00.00").format(cat.getWeight())));
-  }
-
-  private void define_GridSorting_View(Grid<Cat> grid) {
-
-    // BeanGrid: Sorting + setComparator
-    grid.getColumnByKey("age")
-        .setComparator(Comparator.comparingInt(Cat::getAge));
-
-    // BeanGrid: MultiSorting
-    enableColumnSorting(grid, "name", "age");
-    grid.setMultiSort(true, Grid.MultiSortPriority.PREPEND);
   }
 }
