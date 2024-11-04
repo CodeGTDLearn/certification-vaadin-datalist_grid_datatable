@@ -8,12 +8,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73a6204c-25a3-42b3-a063-746332aec269" name="Changes" comment="    7.0) Grid Selection&#10;    * CONCLUDED:&#10;    - Programatic Grid Selection - Getting&#10;    - Context Menu in the grid&#10;    - ToolTip Menu in the grid&#10;&#10;    * WORKING:&#10;    - Item DEtails&#10;    - Theme Variant&#10;    - InLine Editing Grid&#10;    - Grid Editing&#10;&#10;    * NEXT STEPS:">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/cats/config/WeightRangeFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/breeds/BreedView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/breeds/BreedView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/cats/AgeGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/cats/config/AgeRangeFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/cats/CatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/cats/CatService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/cats/CatView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/cats/CatView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/utils/DataBuilders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/utils/DataBuilders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/MainTabMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/MainTabMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/config/AppRoutes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/config/AppRoutes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/config/AppTitles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/config/AppTitles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/breeds/Breed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/modules/breeds/Breed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/breeds/BreedRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/modules/breeds/BreedRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/breeds/BreedService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/modules/breeds/BreedService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/breeds/BreedView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/modules/breeds/BreedView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/cats/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/modules/cats/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/cats/CatRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/modules/cats/CatRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/cats/CatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/modules/cats/CatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/cats/CatView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/modules/cats/CatView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/cats/config/AgeRangeFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/modules/cats/config/AgeRangeFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/cats/config/WeightRangeFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/modules/cats/config/WeightRangeFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/dogs/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/modules/dogs/Dog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/dogs/DogRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/modules/dogs/DogRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/dogs/DogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/modules/dogs/DogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/dogs/DogView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/modules/dogs/DogView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/fosters/Foster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/modules/fosters/Foster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/fosters/FosterRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/modules/fosters/FosterRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/fosters/FosterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/modules/fosters/FosterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/modules/fosters/FosterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/modules/fosters/FosterView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/utils/DataBuilders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/utils/DataBuilders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/utils/DataFaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/utils/DataFaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/practice_project/utils/ViewUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/certification/datalistgridtable/fosterCareHub/utils/ViewUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +113,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.13510747",
     "project.structure.side.proportion": "0.3564239",
-    "settings.editor.selected.configurable": "editor.preferences.appearance",
+    "settings.editor.selected.configurable": "preferences.general",
     "settings.editor.splitter.proportion": "0.2716895"
   }
 }]]></component>
@@ -121,7 +141,7 @@
       <module name="datalistgridtable" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.certification.datalistgridtable.practice_project.*" />
+          <option name="PATTERN" value="com.certification.datalistgridtable.fosterCareHub.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

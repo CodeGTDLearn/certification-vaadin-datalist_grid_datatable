@@ -10,4 +10,4 @@ spring.jpa.defer-datasource-initialization=true
 
 vaadin.devmode-caching=true
 spring.devtools.restart.poll-interval=1000ms
-spring.devtools.restart.quiet-period=1000ms
+spring.devtools.restart.quiet-period=500ms
